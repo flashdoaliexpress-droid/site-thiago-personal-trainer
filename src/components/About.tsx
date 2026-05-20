@@ -1,5 +1,5 @@
 import { WHATSAPP_URL, CREF } from "../constants"
-import sobreImg from "../assets/SOBRE.webp"
+import sobreImg from "../assets/IMAGEM SOBRE.webp"
 
 const formations = [
   { title: "Licenciatura Plena em Educação Física" },
@@ -30,8 +30,8 @@ export function About() {
             {/* Red Shadow Block */}
             <div className="absolute top-8 -right-4 w-full h-full max-w-md bg-primary-container z-0 hidden md:block" />
             {/* CREF Badge */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 z-20">
-              <div className="bg-[#0D0D0D] border border-[#333333] px-6 py-3 flex items-center gap-3">
+            <div className="absolute bottom-4 right-4 lg:-bottom-6 lg:left-0 lg:right-auto z-20">
+              <div className="bg-[#0D0D0D] border border-[#333333] px-4 py-2 lg:px-6 lg:py-3 flex items-center gap-2 lg:gap-3">
                 <span
                   className="material-symbols-outlined text-primary-container"
                   style={{ fontVariationSettings: "'FILL' 1" }}

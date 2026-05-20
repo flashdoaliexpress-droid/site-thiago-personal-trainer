@@ -67,11 +67,11 @@ export function Institutional() {
         <div className="w-full bg-[#111111] border border-[#222222] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Image */}
-            <div className="lg:col-span-4 w-full aspect-[4/3] lg:aspect-auto lg:h-auto">
+            <div className="lg:col-span-4 w-full">
               <img
                 src={formacaoImg}
                 alt="Thiago Silva Rodrigues em ambiente de treino"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-auto lg:h-full object-cover object-top"
                 loading="lazy"
                 decoding="async"
               />
