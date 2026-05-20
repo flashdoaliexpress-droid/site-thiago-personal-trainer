@@ -20,7 +20,7 @@ export function Hero() {
         <img
           alt="Thiago Silva Rodrigues — Personal Trainer"
           className="md:hidden w-full h-full object-cover"
-          style={{ objectPosition: "center 10%" }}
+          style={{ objectPosition: "center 5%" }}
           src={heroMobile}
         />
         {/* Desktop gradient: esquerda → direita */}
@@ -30,7 +30,7 @@ export function Hero() {
           className="absolute inset-0 md:hidden"
           style={{
             background:
-              "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.85) 40%, rgba(13,13,13,0.1) 100%)",
+              "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.55) 38%, rgba(13,13,13,0.0) 100%)",
           }}
         />
       </div>
