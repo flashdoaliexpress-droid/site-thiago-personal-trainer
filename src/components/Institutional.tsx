@@ -1,5 +1,5 @@
 import { CREF } from "../constants"
-import formacaoImg from "../assets/Imagem na sessão Formação - Experiência.jpeg"
+import formacaoImg from "../assets/Imagem na sessão Formação - Experiência.webp"
 
 const specialties = [
   { icon: "fitness_center", title: "Hipertrofia", desc: "Protocolos de alto volume e intensidade focados no ganho máximo de massa muscular magra estruturada." },
@@ -67,11 +67,13 @@ export function Institutional() {
         <div className="w-full bg-[#111111] border border-[#222222] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Image */}
-            <div className="lg:col-span-4 w-full h-64 lg:h-auto">
+            <div className="lg:col-span-4 w-full aspect-[4/3] lg:aspect-auto lg:h-auto">
               <img
                 src={formacaoImg}
                 alt="Thiago Silva Rodrigues em ambiente de treino"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

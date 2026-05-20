@@ -1,28 +1,42 @@
 import { useState } from "react"
 import aluno1A from "../assets/Aluno 1.jpeg"
 import aluno1B from "../assets/Aluno 1 (2).jpeg"
-import aluna2Before from "../assets/Aluna 2.png"
-import aluna2After from "../assets/Aluna 2 (2).png"
-import aluna3Before from "../assets/Aluna 3.png"
-import aluna3After from "../assets/Aluna 3 (2).png"
-import aluna4Before from "../assets/Aluna 4.png"
-import aluna4After from "../assets/Aluna 4 (2).png"
+import aluna2Before from "../assets/Aluna 2.webp"
+import aluna2After from "../assets/Aluna 2 (2).webp"
+import aluna3Before from "../assets/Aluna 3.webp"
+import aluna3After from "../assets/Aluna 3 (2).webp"
+import aluna4Before from "../assets/Aluna 4.webp"
+import aluna4After from "../assets/Aluna 4 (2).webp"
 import aluno5 from "../assets/Aluno 5.jpeg"
-import aluno6 from "../assets/Aluno 6.png"
+import aluno6 from "../assets/Aluno 6.webp"
 
-type PairSlide  = { type: "pair";   before: string; after: string }
-type DoubleSlide = { type: "double"; first: string;  second: string }
-type SingleSlide = { type: "single"; image: string }
+type PairSlide   = { type: "pair";   before: string; after: string }
+type DoubleSlide  = { type: "double"; first: string;  second: string }
+type SingleSlide  = { type: "single"; image: string }
 type Slide = PairSlide | DoubleSlide | SingleSlide
 
 const slides: Slide[] = [
-  { type: "double", first: aluno1A,     second: aluno1B     },
-  { type: "pair",   before: aluna2Before, after: aluna2After },
-  { type: "pair",   before: aluna3Before, after: aluna3After },
-  { type: "pair",   before: aluna4Before, after: aluna4After },
+  { type: "double", first: aluno1A,       second: aluno1B      },
+  { type: "pair",   before: aluna2Before, after: aluna2After   },
+  { type: "pair",   before: aluna3Before, after: aluna3After   },
+  { type: "pair",   before: aluna4Before, after: aluna4After   },
   { type: "single", image: aluno5 },
   { type: "single", image: aluno6 },
 ]
+
+/* Imagem sem corte: ocupa a largura total, altura natural, máximo de 70vh */
+function SlideImg({ src, alt }: { src: string; alt: string }) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      className="w-full h-auto block"
+      style={{ maxHeight: "70vh", objectFit: "contain" }}
+    />
+  )
+}
 
 export function Testimonials() {
   const [current, setCurrent] = useState(0)
@@ -35,17 +49,17 @@ export function Testimonials() {
   const renderSlide = () => {
     if (slide.type === "pair") {
       return (
-        <div className="grid grid-cols-2 gap-3 md:gap-[var(--spacing-gutter)]">
+        <div className="grid grid-cols-2 gap-3 md:gap-[var(--spacing-gutter)] items-start">
           <div className="flex flex-col gap-2">
             <span className="font-body text-[10px] font-bold text-[#444444] uppercase tracking-[0.15em]">Antes</span>
-            <div className="aspect-[3/4] w-full overflow-hidden">
-              <img src={slide.before} alt={`Antes — resultado ${current + 1}`} className="w-full h-full object-cover" />
+            <div className="w-full bg-[#111111] overflow-hidden">
+              <SlideImg src={slide.before} alt={`Antes — resultado ${current + 1}`} />
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <span className="font-body text-[10px] font-bold text-primary-container uppercase tracking-[0.15em]">Depois</span>
-            <div className="aspect-[3/4] w-full overflow-hidden">
-              <img src={slide.after} alt={`Depois — resultado ${current + 1}`} className="w-full h-full object-cover" />
+            <div className="w-full bg-[#111111] overflow-hidden">
+              <SlideImg src={slide.after} alt={`Depois — resultado ${current + 1}`} />
             </div>
           </div>
         </div>
@@ -54,17 +68,17 @@ export function Testimonials() {
 
     if (slide.type === "double") {
       return (
-        <div className="grid grid-cols-2 gap-3 md:gap-[var(--spacing-gutter)]">
+        <div className="grid grid-cols-2 gap-3 md:gap-[var(--spacing-gutter)] items-start">
           <div className="flex flex-col gap-2">
             <span className="font-body text-[10px] font-bold text-primary-container uppercase tracking-[0.15em]">Resultado</span>
-            <div className="aspect-[3/4] w-full overflow-hidden">
-              <img src={slide.first} alt={`Resultado — foto 1`} className="w-full h-full object-cover" />
+            <div className="w-full bg-[#111111] overflow-hidden">
+              <SlideImg src={slide.first} alt="Resultado — foto 1" />
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <span className="font-body text-[10px] font-bold text-primary-container uppercase tracking-[0.15em]">Resultado</span>
-            <div className="aspect-[3/4] w-full overflow-hidden">
-              <img src={slide.second} alt={`Resultado — foto 2`} className="w-full h-full object-cover" />
+            <div className="w-full bg-[#111111] overflow-hidden">
+              <SlideImg src={slide.second} alt="Resultado — foto 2" />
             </div>
           </div>
         </div>
@@ -72,17 +86,17 @@ export function Testimonials() {
     }
 
     return (
-      <div className="flex flex-col gap-2 max-w-sm mx-auto">
+      <div className="flex flex-col gap-2 max-w-xs mx-auto">
         <span className="font-body text-[10px] font-bold text-primary-container uppercase tracking-[0.15em]">Resultado</span>
-        <div className="aspect-[3/4] w-full overflow-hidden">
-          <img src={slide.image} alt={`Resultado — aluno ${current + 1}`} className="w-full h-full object-cover" />
+        <div className="w-full bg-[#111111] overflow-hidden">
+          <SlideImg src={slide.image} alt={`Resultado — aluno ${current + 1}`} />
         </div>
       </div>
     )
   }
 
   return (
-    <section className="w-full py-[128px] bg-[#0D0D0D] overflow-hidden" id="resultados">
+    <section className="w-full py-[128px] bg-[#0D0D0D]" id="resultados">
       <div className="max-w-[var(--container-max)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-24">

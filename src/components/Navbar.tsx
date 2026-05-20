@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { WHATSAPP_URL } from "../constants"
-import logo from "../assets/Logo do Thiago.png"
+import logo from "../assets/Logo do Thiago.webp"
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)

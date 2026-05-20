@@ -1,5 +1,5 @@
 import { WHATSAPP_URL, CREF } from "../constants"
-import sobreImg from "../assets/SOBRE.jpeg"
+import sobreImg from "../assets/SOBRE.webp"
 
 const formations = [
   { title: "Licenciatura Plena em Educação Física" },
@@ -18,7 +18,9 @@ export function About() {
             <div className="relative z-10 w-full aspect-[3/4] max-w-md mx-auto">
               <img
                 alt="Thiago Silva Rodrigues — Personal Trainer profissional em ambiente de treino"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
+                loading="lazy"
+                decoding="async"
                 src={sobreImg}
               />
               {/* Red L-Reticles */}

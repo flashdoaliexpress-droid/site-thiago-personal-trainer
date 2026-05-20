@@ -1,6 +1,6 @@
 import { WHATSAPP_URL } from "../constants"
-import heroDesktop from "../assets/Imagem Hero Desktop.png"
-import heroMobile from "../assets/Imagem Hero Mobile.png"
+import heroDesktop from "../assets/Imagem Hero Desktop.webp"
+import heroMobile from "../assets/Imagem Hero Mobile.webp"
 
 export function Hero() {
   return (
